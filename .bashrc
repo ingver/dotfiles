@@ -5,8 +5,11 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-export EDITOR=/usr/bin/vim
-export VISUAL=/usr/bin/vim
+export EDITOR=/usr/bin/nvim
+export VISUAL=/usr/bin/nvim
+
+# neovim aliases
+alias vim='/usr/bin/nvim'
 
 
 # ls aliases
@@ -16,8 +19,8 @@ alias ls='ls --color=auto'
 
 
 #pacman aliases
-alias inst='pacman -S '
-alias apps='pacman -Ss ' 
+alias inst='sudo pacman -S '
+alias apps='sudo pacman -Ss ' 
 
 # make aliases
 alias maek='make '

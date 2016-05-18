@@ -15,8 +15,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-"Plugin 'altercation/vim-colors-solarized'
-"Plugin 'whatyouhide/vim-gotham'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'godlygeek/tabular'
 Plugin 'airblade/vim-gitgutter'
@@ -24,10 +22,15 @@ Plugin 'mhinz/vim-startify'
 Plugin 'vim-scripts/Smart-Tabs'
 Plugin 'tpope/vim-sensible'
 Plugin 'vim-scripts/taglist.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'kovisoft/slimv'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tmux-plugins/vim-tmux-focus-events'
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'rdnetto/YCM-Generator'
+
+" Themes
+Plugin 'crusoexia/vim-monokai'
+"Plugin 'altercation/vim-colors-solarized'
+"Plugin 'whatyouhide/vim-gotham'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -41,6 +44,7 @@ syntax enable
 set background=dark
 "colorscheme solarized
 "colorscheme gotham
+colorscheme monokai
 
 
 
@@ -132,3 +136,4 @@ endif
 vmap <Leader>y :w! ~/.vbuf<CR>
 nmap <Leader>y :.w! ~/.vbuf<CR>
 nmap <Leader>p :r ~/.vbuf<CR>
+
