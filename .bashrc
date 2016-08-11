@@ -7,9 +7,11 @@
 
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
+#export EDITOR=/usr/bin/vim
+#export VISUAL=/usr/bin/vim
 
-# neovim aliases
 alias vim='/usr/bin/nvim'
+#alias vim='/usr/bin/vim'
 
 
 # ls aliases
@@ -45,12 +47,20 @@ alias get='git'
 alias gha='git hist --all'
 alias ghl='git hist --all | more'
 alias gh='git hist'
+alias gr='cd $(git rev-parse --show-toplevel)'
 
 
 # bash prompt
 #source ~/.git-prompt.sh
 #PS1='[\u@\h \W]\$ ' # original
 PS1='\[\033[01;34m\][\[\033[01;32m\]\u\[\033[01;34m\] | \[\033[01;31m\]\W \[\033[01;34m\]] $ \[\033[00m\]'
+
+# powerline setup
+PW_ROOT='/usr/lib/python3.5/site-packages'
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+. $PW_ROOT/powerline/bindings/bash/powerline.sh
 
 
 stty -ixon
