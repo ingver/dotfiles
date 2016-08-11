@@ -18,18 +18,23 @@ Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'godlygeek/tabular'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'mhinz/vim-startify'
+"Plugin 'mhinz/vim-startify'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-session'
 Plugin 'vim-scripts/Smart-Tabs'
 Plugin 'tpope/vim-sensible'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
-"Plugin 'Valloric/YouCompleteMe'
-"Plugin 'rdnetto/YCM-Generator'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'rdnetto/YCM-Generator'
+Plugin 'vim-airline/vim-airline'
+"Plugin 'sirver/ultisnips'
+"Plugin 'OmniSharp/omnisharp-vim'
 
 " Themes
 Plugin 'crusoexia/vim-monokai'
-"Plugin 'altercation/vim-colors-solarized'
+Plugin 'altercation/vim-colors-solarized'
 "Plugin 'whatyouhide/vim-gotham'
 
 call vundle#end()            " required
@@ -62,6 +67,10 @@ set cindent
 set cinoptions=(0,u0,U0
 
 
+""" vim-session config
+let g:session_autosave = 'no'
+let g:session_lock_enabled = 0
+
 
 """ taglist config
 
@@ -76,6 +85,12 @@ let g:syntastic_cpp_compiler_options = ' -std=c++1y '
 """ YouCompleteMe config
 let g:ycm_server_python_interpreter = '/usr/bin/python'
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
+
+""" vim-airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+set laststatus=2
 
 """ Mappings
 
@@ -91,8 +106,10 @@ imap <c-s> <Esc><c-s>
 "nmap <c-k> <c-w>k
 "nmap <c-l> <c-w>l
 nmap ,t :tabnew<CR>
-nnoremap J :tabn<CR>
-nnoremap K :tabp<CR>
+"nnoremap J :tabn<CR>
+"nnoremap K :tabp<CR>
+nnoremap <c-j> :tabn<CR>
+nnoremap <c-k> :tabp<CR>
 inoremap <Esc> <Esc>`^
 imap 0A <ESC>ki
 imap 0B <ESC>ji
@@ -102,8 +119,10 @@ map <Leader>e :tabe $MYVIMRC<CR>
 map <Leader>s :source $MYVIMRC<CR>
 map Q hl
 map q: hl
-
-
+:nnoremap <F5> "=strftime("%H:%M:%S")<CR>P
+:inoremap <F5> <C-R>=strftime("%H:%M:%S")<CR>
+nnoremap <Leader>s :SaveSession 
+nnoremap <Leader>l :OpenSession 
 
 """ Misc
 
@@ -114,6 +133,8 @@ set textwidth=79
 set number
 set numberwidth=3
 set ignorecase
+" force to not highlight background of matching bracket
+hi MatchParen cterm=bold ctermbg=none ctermfg=green
 
 
 
@@ -136,4 +157,3 @@ endif
 vmap <Leader>y :w! ~/.vbuf<CR>
 nmap <Leader>y :.w! ~/.vbuf<CR>
 nmap <Leader>p :r ~/.vbuf<CR>
-
