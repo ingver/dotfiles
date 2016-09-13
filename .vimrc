@@ -38,6 +38,7 @@ Plugin 'Raimondi/delimitMate'
 "Plugin 'OmniSharp/omnisharp-vim'
 
 " Javascript
+"Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'elzr/vim-json'
 Plugin 'gavocanov/vim-js-indent'
@@ -63,12 +64,12 @@ syntax enable
 set background=dark
 "colorscheme solarized
 "colorscheme gotham
-"colorscheme monokai
-colorscheme dracula
+colorscheme monokai
+"colorscheme dracula
 
 
 """ vim-session config
-let g:session_autosave = 'no'
+let g:session_autosave = 'yes'
 let g:session_lock_enabled = 0
 
 
@@ -121,7 +122,8 @@ let delimitMate_expand_cr = 1
 """ Mappings
 
 map <f2> :noh<CR>
-map <f3> :NERDTreeToggle<CR>
+map <f3> :SyntasticToggle<CR>
+map <c-n> :NERDTreeToggle<CR>
 map <f4> :TlistToggle<CR>
 map <f8> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 nmap <c-s> :w<CR>
