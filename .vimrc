@@ -28,6 +28,7 @@ Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'vim-airline/vim-airline'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'Raimondi/delimitMate'
+Plugin 'bronson/vim-trailing-whitespace'
 "Plugin 'Shougo/neocomplete'
 "Plugin 'sirver/ultisnips'
 
@@ -121,39 +122,35 @@ let delimitMate_expand_cr = 1
 
 """ Mappings
 
-map <f2> :noh<CR>
-map <f3> :SyntasticToggle<CR>
-map <c-n> :NERDTreeToggle<CR>
-map <f4> :TlistToggle<CR>
-map <f8> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-nmap <c-s> :w<CR>
-vmap <c-s> <Esc><c-s>gv
-imap <c-s> <Esc><c-s>
-"nmap <c-h> <c-w>h
-"nmap <c-j> <c-w>j
-"nmap <c-k> <c-w>k
-"nmap <c-l> <c-w>l
+"" F's
+map <F2> :noh<CR>
+map <F3> :SyntasticToggle<CR>
+map <F4> :TlistToggle<CR>
+nnoremap <F5> "=strftime("%H:%M:%S")<CR>P
+inoremap <F5> <C-R>=strftime("%H:%M:%S")<CR>
+map <F8> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+
+"" tabs
 nmap ,t :tabnew<CR>
-"nnoremap J :tabn<CR>
-"nnoremap K :tabp<CR>
-nnoremap <c-j> :tabn<CR>
-nnoremap <c-k> :tabp<CR>
+nnoremap <C-J> :tabn<CR>
+nnoremap <C-K> :tabp<CR>
 nnoremap <PageUp> :tabm -1<CR>
 nnoremap <PageDown> :tabm +1<CR>
-nnoremap <c-q> :tabc<CR>
-inoremap <Esc> <Esc>`^
-imap 0A <ESC>ki
-imap 0B <ESC>ji
-imap 0C <ESC>li
-imap 0D <ESC>hi
-map <Leader>e :tabe $MYVIMRC<CR>
-map <Leader>s :source $MYVIMRC<CR>
-map Q hl
-map q: hl
-:nnoremap <F5> "=strftime("%H:%M:%S")<CR>P
-:inoremap <F5> <C-R>=strftime("%H:%M:%S")<CR>
+nnoremap <C-Q> :tabc<CR>
+
+"" sessions
 nnoremap <Leader>s :SaveSession
 nnoremap <Leader>l :OpenSession
+
+map <Leader>e :tabe $MYVIMRC<CR>
+map <Leader>s :source $MYVIMRC<CR>
+inoremap <Esc> <Esc>`^
+map <C-N> :NERDTreeToggle<CR>
+nmap <C-S> :w<CR>
+vmap <C-S> <Esc><C-S>gv
+imap <C-S> <Esc><C-S>
+
+
 
 """ Misc
 
@@ -166,6 +163,8 @@ set numberwidth=3
 set ignorecase
 " force to not highlight background of matching bracket
 hi MatchParen cterm=Underline ctermbg=None ctermfg=Cyan
+" autodelete trailings
+autocmd BufWritePre <buffer> :FixWhitespace
 
 
 
