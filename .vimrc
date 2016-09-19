@@ -163,6 +163,7 @@ set numberwidth=3
 set ignorecase
 " force to not highlight background of matching bracket
 hi MatchParen cterm=Underline ctermbg=None ctermfg=Cyan
+hi Search cterm=Underline ctermbg=None ctermfg=Magenta
 " autodelete trailings
 autocmd BufWritePre <buffer> :FixWhitespace
 
