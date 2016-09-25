@@ -29,8 +29,6 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'Raimondi/delimitMate'
 Plugin 'bronson/vim-trailing-whitespace'
-"Plugin 'Shougo/neocomplete'
-"Plugin 'sirver/ultisnips'
 
 " Multilang
 "Plugin 'sheerun/vim-polyglot'
@@ -46,7 +44,6 @@ Plugin 'gavocanov/vim-js-indent'
 Plugin 'moll/vim-node'
 Plugin 'othree/yajs.vim'
 Plugin 'othree/es.next.syntax.vim'
-"Plugin 'flowtype/vim-flow'
 
 " Themes
 Plugin 'crusoexia/vim-monokai'
@@ -79,34 +76,12 @@ let g:session_lock_enabled = 0
 let Tlist_Ctags_Cmd = "/usr/bin/ctags"
 let Tlist_WinWidth = 40
 
-""" Neocomplete config
-"let g:acp_enableAtStartup = 1
-"let g:neocomplete#enable_at_startup = 1
-"let g:neocomplete#enable_smart_case = 1
-"let g:neocomplete#sources#dictionary#dictionaries = {
-    "\ 'default' : '',
-    "\ 'vimshell' : $HOME.'/.vimshell_hist',
-    "\ 'scheme' : $HOME.'/.gosh_completions'
-        "\ }
-"inoremap <expr><C-g>     neocomplete#undo_completion()
-"inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
 """ Syntastic config
 let g:syntastic_cpp_compiler_options = ' -std=c++1y '
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_check_on_open = 1
 
 let g:syntastic_javascript_checkers = ['eslint', 'jshint']
 
@@ -136,6 +111,8 @@ nnoremap <C-J> :tabn<CR>
 nnoremap <C-K> :tabp<CR>
 nnoremap <PageUp> :tabm -1<CR>
 nnoremap <PageDown> :tabm +1<CR>
+nnoremap <C-G> :tabm -1<CR>
+nnoremap <C-H> :tabm +1<CR>
 nnoremap <C-Q> :tabc<CR>
 
 "" sessions
